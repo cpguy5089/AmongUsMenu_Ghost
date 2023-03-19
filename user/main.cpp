@@ -39,11 +39,11 @@ bool GameVersionCheck() {
 	auto gameAssembly = modulePath.parent_path() / "GameAssembly.dll";
 	auto steamApi = modulePath.parent_path() / "Among Us_Data" / "Plugins" / "x86" / "steam_api.dll";
 
-	if (!IsWindows10OrGreater()) {
+	/*if (!IsWindows10OrGreater()) {
 		Log.Error("Version of windows not supported exiting!");
 		MessageBox(NULL, L"This version of Windows is not supported!", L"AmongUsMenu", MB_OK | MB_ICONERROR | MB_SYSTEMMODAL);
 		return false;
-	}
+	}*/ /*Commented out the removal of support for under win10. No idea if it still works under 10*/
 
 	if (!std::filesystem::exists(gameAssembly)) {
 		Log.Error("GameAssembly.dll was not found");
