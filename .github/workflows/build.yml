@@ -102,6 +102,7 @@ jobs:
         id: "automatic_releases"
         with:
           repo_token: "${{ secrets.MYTOKEN }}"
+          automatic_release_tag: "Ghostmode"
           #prerelease: false
           files: |
             Release.zip
