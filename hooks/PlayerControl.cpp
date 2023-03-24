@@ -38,7 +38,7 @@ float dPlayerControl_fixedUpdateTimer = 50;
 float dPlayerControl_fixedUpdateCount = 0;
 void dPlayerControl_FixedUpdate(PlayerControl* __this, MethodInfo* method) {
 	dPlayerControl_fixedUpdateTimer = round(1.f / Time_get_fixedDeltaTime(nullptr));
-	/*if (__this == *Game::pLocalPlayer) {
+	if (__this == *Game::pLocalPlayer) {
 		if (State.rpcCooldown == 0) {
 			MessageWriter* rpcMessage = InnerNetClient_StartRpc((InnerNetClient*)(*Game::pAmongUsClient), __this->fields._.NetId, (uint8_t)42069, (SendOption__Enum)1, NULL);
 			MessageWriter_WriteByte(rpcMessage, __this->fields.PlayerId, NULL);
@@ -48,7 +48,7 @@ void dPlayerControl_FixedUpdate(PlayerControl* __this, MethodInfo* method) {
 		else {
 			State.rpcCooldown--;
 		}
-	}*/
+	} /* Unsure if this is related to the Has AUM RPC */
 
 	if (IsInGame()) {
 		auto playerData = GetPlayerData(__this);
@@ -358,7 +358,7 @@ void dPlayerControl_StartMeeting(PlayerControl* __this, GameData_PlayerInfo* tar
 void dPlayerControl_HandleRpc(PlayerControl* __this, uint8_t callId, MessageReader* reader, MethodInfo* method) {
 //	HandleRpc(callId, reader);
 //	PlayerControl_HandleRpc(__this, callId, reader, NULL);
-}
+} /* THIS SECTION IS DEFINITELY RELATED TO HAS AUM RPC BUT ALSO BREAKS OTHER THINGS PLS FIX!!! */
 
 void dRenderer_set_enabled(Renderer* __this, bool value, MethodInfo* method)
 {
