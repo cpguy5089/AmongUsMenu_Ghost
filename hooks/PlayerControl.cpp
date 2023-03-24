@@ -356,8 +356,8 @@ void dPlayerControl_StartMeeting(PlayerControl* __this, GameData_PlayerInfo* tar
 }
 
 void dPlayerControl_HandleRpc(PlayerControl* __this, uint8_t callId, MessageReader* reader, MethodInfo* method) {
-	HandleRpc(callId, reader);
-	PlayerControl_HandleRpc(__this, callId, reader, NULL);
+//	HandleRpc(callId, reader);
+//	PlayerControl_HandleRpc(__this, callId, reader, NULL);
 }
 
 void dRenderer_set_enabled(Renderer* __this, bool value, MethodInfo* method)
