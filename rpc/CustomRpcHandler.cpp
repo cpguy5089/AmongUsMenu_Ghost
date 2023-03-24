@@ -7,7 +7,7 @@
 void HandleRpc(uint8_t callId, MessageReader* reader) {
 	switch (callId) {
 		
-	case (uint8_t)42069:
+	case (uint8_t)1337:
 	{
 		uint8_t playerid = MessageReader_ReadByte(reader, NULL);
 		if (!std::count(State.aumUsers.begin(), State.aumUsers.end(), playerid)) {
