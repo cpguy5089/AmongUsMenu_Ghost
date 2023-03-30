@@ -1,13 +1,12 @@
-(slightly edited version to have minor qol touchups that i feel the need for)
-
-# AmongUsMenu [![Discord](https://img.shields.io/badge/Discord-Invite-7289DA.svg?logo=Discord&style=flat-square)](https://discord.gg/AUpXd3VUh8) [![Paypal](https://img.shields.io/badge/PayPal-Donate-Green.svg?logo=Paypal&style=flat-square)](https://www.paypal.com/donate/?hosted_button_id=TYMU92FD9D9UW)
+# AmongUsMenu - Ghostmode
 
 <p align="center">
    AmongUsMenu is a Cheat Menu for the popular Game Among Us.
+   This is a fork intended to "hide" the client to allow for ToH gameplay
 </p>
 
 ## Disclaimer
-This project is for Educational Use only. We do not condone this software being used to gain an advantage against other people. I made this project for my university project to show how cheating software works and how it is possible to block these manipulations in the future.
+This project is for Educational Use only. We do not condone this software being used to gain an advantage against other people. This project was originally made for a  university project to show how cheating software works and how it is possible to block these manipulations in the future.
 
 ## Compile (Configurations)
 You can compile two different versions of the menu. Normal or Version Proxy.
@@ -52,9 +51,11 @@ First you will need protontricks, you can install it with your packager of choic
 </p>
 
 ## Special Thanks
+* [BitCrackers](https://github.com/BitCrackers) (Creating the original that this was forked from)
+* [cddjr](https://github.com/cddjr) (Keeping the original updated/supported long after development was officially ended)
 * [KulaGGin](https://github.com/KulaGGin) (Helped with some ImGui code for replay system)
 * [tomsa000](https://github.com/tomsa000) (Helped with fixing memory leaks and smart pointers)
-* Everyone else who contributed to the code and I couldn't list here. Thank you!
+* Everyone else who contributed to the code and that couldn't be listed here. Thank you!
 
 ## Contributing
 
