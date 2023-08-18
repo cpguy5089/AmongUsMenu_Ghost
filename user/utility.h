@@ -156,6 +156,7 @@ il2cpp::List<List_1_PlayerTask_> GetPlayerTasks(PlayerControl* player);
 std::vector<NormalPlayerTask*> GetNormalPlayerTasks(PlayerControl* player);
 SabotageTask* GetSabotageTask(PlayerControl* player);
 void RepairSabotage(PlayerControl* player);
+void ImpWin();
 void CompleteTask(NormalPlayerTask* playerTask);
 const char* TranslateTaskTypes(TaskTypes__Enum taskType);
 const char* TranslateSystemTypes(SystemTypes__Enum systemType);
