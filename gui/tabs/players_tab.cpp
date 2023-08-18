@@ -79,6 +79,9 @@ namespace PlayersTab {
 					if (ImGui::Button("Call Meeting")) {
 						State.rpcQueue.push(new RpcReportPlayer(PlayerSelection()));
 					}
+					if (ImGui::Button("Force report body")) { //Force report dead body even when alive - Code ripped from https://github.com/BitCrackers/AmongUsMenu/commit/510a707dd84fbdaee294cbd67c0222771d545c14
+						State.rpcQueue.push(new RpcReportPlayer(State.selectedPlayer));
+					}
 				}
 				if (State.activeImpersonation)
 				{
