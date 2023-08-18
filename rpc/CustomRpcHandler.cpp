@@ -3,17 +3,20 @@
 #include "game.h"
 #include "state.hpp"
 #include "logger.h"
+#include "utility.h"
 
 void HandleRpc(uint8_t callId, MessageReader* reader) {
 	switch (callId) {
 		
-	case (uint8_t)1337:
+	case (uint8_t)42069:/* Note to future self, this section simply gets other AUM users and does not broadcast - Broadcast is inside hooks/PlayerControl.cpp */
 	{
 		uint8_t playerid = MessageReader_ReadByte(reader, NULL);
 		if (!std::count(State.aumUsers.begin(), State.aumUsers.end(), playerid)) {
 			State.aumUsers.push_back(playerid);
+			GameData_PlayerInfo* playerinfo = GetPlayerDataById((Game::PlayerId)playerid); /* Popup on AUM user - Code from https://github.com/BitCrackers/AmongUsMenu/blob/0b38319a5efddffa4ef3e740f088fafe07052b88/rpc/CustomRpcHandler.cpp */
+			MessageBoxA(NULL, std::format("Received AUM player {}! Use AUM chat to talk with them!", app::GameData_PlayerInfo_get_PlayerName(playerinfo, NULL)).c_str(), "AUM player detected", MB_OK | MB_ICONEXCLAMATION);
 			STREAM_DEBUG("RPC Received for another AUM User from " << ToString((Game::PlayerId)playerid));
-		} /*THIS SECTION MIGHT BE THE HAS AUM RICH PRESENCE IDK LOL*/
+		}
 	}
 	break;
 	case 101:
@@ -23,7 +26,7 @@ void HandleRpc(uint8_t callId, MessageReader* reader) {
 		uint32_t colorId = MessageReader_ReadInt32(reader, NULL);
 		if (message.size() == 0) break;
 		State.chatMessages.emplace_back(std::make_unique<RpcChatMessage>(playerName, message, colorId, std::chrono::system_clock::now()));
-		State.newChatMessage = true; /*THIS MIGHT ALSO BE AUM RPC IDK JUST COMMENTING FOR THE SAKE OF IT*/
+		State.newChatMessage = true;
 	}
 	break;
 	}
