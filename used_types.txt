@@ -109,9 +109,6 @@ PlayerControl__Array
 List_1_PlayerControl_
 DestroyableSingleton_1_HudManager___Fields
 HudManager
-Delegate__Fields
-MulticastDelegate__Fields
-Action_1_MapBehaviour_
 KeyboardJoystick
 ScreenJoystick
 MeetingHud_VoteStates__Enum
@@ -197,7 +194,6 @@ NormalPlayerTask_TimerState__Enum
 NormalPlayerTask
 Palette
 ControlTypes__Enum
-Announcement
 SaveManager
 DestroyableSingleton_1_RoleManager_
 EngineerRole
@@ -205,7 +201,6 @@ RoleManager
 HatData
 HatData__Array
 List_1_HatData_
-GameOptionsDataParent
 StatsManager_Stats
 SkinLayer
 VoteSpreader__Fields
@@ -223,3 +218,6 @@ DestroyableSingleton_1_PlayerStorageManager___Fields
 PlayerStorageManager_CloudPlayerPrefs
 PlayerStorageManager__Fields
 UpdateState__Enum
+AbstractChatInputField__Fields
+FreeChatInputField__Fields
+FreeChatInputField
