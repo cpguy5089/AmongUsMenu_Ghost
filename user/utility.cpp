@@ -51,6 +51,7 @@ int RoleRates::GetRoleCount(RoleTypes__Enum role) {
 			return this->MaxCrewmates;
 		default:
 #ifdef _DEBUG
+			Log.Error("Error at GetRoleCount");
 			assert(false);
 #endif
 			return 0;
@@ -346,6 +347,17 @@ SabotageTask* GetSabotageTask(PlayerControl* player) {
 	return NULL;
 }
 
+void ImpWin() {
+	State.rpcQueue.push(new RpcRepairSystem(SystemTypes__Enum::Sabotage, SystemTypes__Enum::Reactor));
+	for (auto door : State.mapDoors)
+	{
+		if (std::find(State.pinnedDoors.begin(), State.pinnedDoors.end(), door) == State.pinnedDoors.end())
+		{
+			if (door != SystemTypes__Enum::Decontamination && door != SystemTypes__Enum::Decontamination2)
+				State.rpcQueue.push(new RpcCloseDoorsOfType(door, true));
+		}
+	}
+}
 void RepairSabotage(PlayerControl* player) {
 	static std::string electricTaskType = translate_type_name("ElectricTask");
 	static std::string hqHudOverrideTaskType = translate_type_name("HqHudOverrideTask");
