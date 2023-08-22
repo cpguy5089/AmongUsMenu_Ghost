@@ -190,7 +190,7 @@ namespace PlayersTab {
 						{
 							previousPlayerPosition = GetTrueAdjustedPosition(*Game::pLocalPlayer);
 							State.rpcQueue.push(new CmdCheckMurder(State.selectedPlayer));
-							framesPassed = 40;
+							framesPassed = 165;
 							State.rpcQueue.push(new RpcSnapTo(previousPlayerPosition));
 							framesPassed = 40;
 						}
