@@ -179,7 +179,7 @@ namespace PlayersTab {
 						}
 					}
 
-					if (IsInGame() && PlayerIsImpostor(GetPlayerData(*Game::pLocalPlayer))
+					if (IsInGame() && PlayerIsImpostor(GetPlayerData(*Game::pLocalPlayer)) // Extra code bits from https://github.com/Dasupergrasskakjd/AmongUsMenu/blob/main/gui/tabs/players_tab.cpp
 						&& !selectedPlayer.get_PlayerData()->fields.IsDead
 						&& !selectedPlayer.get_PlayerControl()->fields.inVent
 						&& !selectedPlayer.get_PlayerControl()->fields.inMovingPlat
@@ -187,13 +187,24 @@ namespace PlayersTab {
 						&& !selectedPlayer.get_PlayerControl()->fields.protectedByGuardian)
 					{
 						if (ImGui::Button("Kill Player"))
+						{ // Find way to reliably wait for kill so it can teleport back
+							previousPlayerPosition = GetTrueAdjustedPosition(*Game::pLocalPlayer);
+							State.rpcQueue.push(new CmdCheckMurder(State.selectedPlayer));
+							State.rpcQueue.push(new RpcSnapTo(previousPlayerPosition));
+							framesPassed = 165; // Maybe find a way to wait for the target to die before doing an extra wait time to account for ping before teleporting back?
+						} // Original framespassed value is 40, currently set to 165 to try work around ping and refresh rates
+					}
+
+					if (IsInGame() && PlayerIsImpostor(GetPlayerData(*Game::pLocalPlayer))
+						&& !selectedPlayer.get_PlayerData()->fields.IsDead
+						&& !selectedPlayer.get_PlayerControl()->fields.inMovingPlat)
+					{
+						if (ImGui::Button("Force Kill Player(Might get you kicked)"))
 						{
 							previousPlayerPosition = GetTrueAdjustedPosition(*Game::pLocalPlayer);
 							State.rpcQueue.push(new CmdCheckMurder(State.selectedPlayer));
 							framesPassed = 165;
-							State.rpcQueue.push(new RpcSnapTo(previousPlayerPosition));
-							framesPassed = 40;
-						}
+						} // Original framespassed value is 40, currently set to 165 to try work around ping and refresh rates
 					}
 
 					if (framesPassed == 0)
