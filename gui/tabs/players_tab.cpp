@@ -195,14 +195,15 @@ namespace PlayersTab {
 						} // Original framespassed value is 40, currently set to 165 to try work around ping and refresh rates
 					}
 
-					if (IsInGame() && PlayerIsImpostor(GetPlayerData(*Game::pLocalPlayer))
+					if (IsInGame() //&& PlayerIsImpostor(GetPlayerData(*Game::pLocalPlayer)) // Commented out imp check so kills can be attempted as crew even though it likely kicks
 						&& !selectedPlayer.get_PlayerData()->fields.IsDead
 						&& !selectedPlayer.get_PlayerControl()->fields.inMovingPlat)
 					{
-						if (ImGui::Button("Force Kill Player(Might get you kicked)"))
+						if (ImGui::Button("Force Kill Player(Likely kicks)"))
 						{
 							previousPlayerPosition = GetTrueAdjustedPosition(*Game::pLocalPlayer);
 							State.rpcQueue.push(new CmdCheckMurder(State.selectedPlayer));
+							State.rpcQueue.push(new RpcSnapTo(previousPlayerPosition)); // Added snapto/tp back line for the sake of it
 							framesPassed = 165;
 						} // Original framespassed value is 40, currently set to 165 to try work around ping and refresh rates
 					}
