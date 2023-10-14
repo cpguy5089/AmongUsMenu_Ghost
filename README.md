@@ -1,12 +1,12 @@
-# AmongUsMenu - Ghostmode
+# AmongUsMenu_Ghost
 
 <p align="center">
-   AmongUsMenu is a Cheat Menu for the popular Game Among Us.
-   This is a fork intended to "hide" the client to allow for ToH gameplay
+   AmongUsMenu is a Cheat Menu for the popular Game Among Us - AmongUsMenu_Ghost is a fork intended to "hide" the client to allow for ToH gameplay and hiding from regular AUM users.
+   Development on the original fork has stopped, and I'm not smart enough to keep it updated whenever there is a new Among Us update - Any updates will come when seen on the main branch.
 </p>
 
 ## Disclaimer
-This project is for Educational Use only. We do not condone this software being used to gain an advantage against other people. This project was originally made for a  university project to show how cheating software works and how it is possible to block these manipulations in the future.
+This project is for Educational Use only. We do not condone this software being used to gain an advantage against other people. This project was originally made for a university project to show how cheating software works and how it is possible to block these manipulations in the future.
 
 ## Compile (Configurations)
 You can compile two different versions of the menu. Normal or Version Proxy.
