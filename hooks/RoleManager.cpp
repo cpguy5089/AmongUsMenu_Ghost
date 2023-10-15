@@ -73,10 +73,11 @@ void AssignRoles(RoleRates& roleRates, int roleChance, RoleTypes__Enum role, il2
 
 	if (role == RoleTypes__Enum::Shapeshifter && roleCount >= maxImposterAmount)
 		roleCount = maxImposterAmount; //In previous version, aum would assign more imps than MaxImposterAmount based on shapeshifter amount.
+	
 	if (roleCount < 1)
 		return;
 
-	auto playerAmount = allPlayers.size();
+	//auto playerAmount = allPlayers.size();
 
 	for (auto i = 0; i < roleCount; i++)
 	{
